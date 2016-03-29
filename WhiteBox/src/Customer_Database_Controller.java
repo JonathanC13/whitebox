@@ -232,7 +232,7 @@ public class Customer_Database_Controller implements Operations_Display {
 		//append all FROM, JOIN, ON statements.
 		stringy.append(" " + JOINS + " ");
 		
-		boolean end = true;
+		//boolean end = true;
 		boolean all_null = true;
 		int count = 0;
 		
@@ -255,7 +255,7 @@ public class Customer_Database_Controller implements Operations_Display {
 			
 			stringy.append("WHERE ");
 			
-			while(end){
+			while(true){
 				String spec = UserSave.get(count);
 				
 				if(spec.equalsIgnoreCase(null)){
@@ -274,7 +274,7 @@ public class Customer_Database_Controller implements Operations_Display {
 					else {
 						
 						stringy.append(";");
-						
+						break;
 					}
 					
 				}
