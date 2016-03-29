@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- Can add many variables here so they don't have to be hardcoded, add more if we have the time -->
+
+	<!-- Path to folder to scan -->
+	<entry key="path"> </entry>
+
+	
+	<!-- Host URL for DB Connection (host address:port:database name), ex jdbc:oracle:thin:@img-tdc-q005593:1521:ITSMTDC5 -->
+	<entry key="hostURL">jdbc:mysql://localhost:3306/feedback?useSSL=false</entry>
+	
+	<!--User name for the database -->
+	<entry key="Username">sqluser</entry>
+	
+	<!-- Password for the database -->
+	<entry key="Password">sqluserpw</entry>
+	
+</properties>
