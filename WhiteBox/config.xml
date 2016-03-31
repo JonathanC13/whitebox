@@ -9,12 +9,12 @@
 
 	
 	<!-- Host URL for DB Connection (host address:port:database name), ex jdbc:oracle:thin:@img-tdc-q005593:1521:ITSMTDC5 -->
-	<entry key="hostURL">jdbc:mysql://localhost:3306/feedback?useSSL=false</entry>
+	<!--<entry key="hostURL">jdbc:mysql://localhost:3306/whitebox_db?autoReconnect=true&useSSL=false;</entry>-->
 	
 	<!--User name for the database -->
-	<entry key="Username">sqluser</entry>
+	<entry key="Username">Jon</entry>
 	
 	<!-- Password for the database -->
-	<entry key="Password">sqluserpw</entry>
+	<entry key="Password">12345</entry>
 	
 </properties>
