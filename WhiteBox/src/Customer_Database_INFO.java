@@ -7,7 +7,8 @@ public class Customer_Database_INFO {
         /* 1*/  "payment_info",
         /* 2*/  "product_info",
         /* 3*/  "manufacturer_table",
-        /* 4*/ "component_type_table"
+        /* 4*/  "component_type_table",
+        /* 5*/  "View entire database"
         
     };
     
@@ -52,7 +53,11 @@ public class Customer_Database_INFO {
             // component_type_table
             /* 30*/  "All",
             /* 31*/ "Component_type",
-            /* 32*/ "Component_type_description"
+            /* 32*/ "Component_type_description",
+            
+            // entire database
+            /* 33*/ "All",
+            /* 34*/ "Build_ID"
             
     };
   
@@ -87,13 +92,13 @@ public class Customer_Database_INFO {
             s1 = s;
             if(s1.equals("All")){ head++; if(head <= i)tail = count;}
             if(head > i){count--; break;}
-            if(head == i) {  System.out.println("swag = "+ count+"tail = "+ tail + " "+ s1); newww[count - tail] = s1;}
+            if(head == i) {  newww[count - tail] = s1;}
         }
         count++;
-        System.out.println("i = "+ i +"count = "+ count +"tail ="+tail);
+        //System.out.println("i = "+ i +"count = "+ count +"tail ="+tail);
         String[]result = new String[count - tail];
         for(int j = 0; j < count - tail; j++){
-             System.out.println(newww[j]);
+             //System.out.println(newww[j]);
              result [j] = newww[j];
         }
          //System.out.println("done");

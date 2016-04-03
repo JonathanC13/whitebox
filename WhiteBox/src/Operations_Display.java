@@ -12,20 +12,15 @@ public interface Operations_Display {
 	 * After select "Upload file", int Operation = 1, Customer controller calls this method to ask user
 	 * for directory of template file.
 	 */
-	//String UploadFileDirectory(String Directory);
+	String UploadFileDirectory(String Filename);
 	
 	String BuildFilterSQL(LinkedList<OperationType> filList);
+	void close();
 	
+	//get resultSet from filter
 	ResultSet getResult();
-	/*
-	 * GUI needs to write a method I can call to return the filtered data and display to user.
-	 * 
-	 * ex. DisplayResult(ResultSet result)
-	 */
-
-	/* GUI needs a method that I can call that displays a message to the user.
-	 * 
-	 */
-
+	
+	// commit an insert
+	void commitTO();
 
 }

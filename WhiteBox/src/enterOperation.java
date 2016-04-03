@@ -15,7 +15,7 @@ public class enterOperation implements ActionListener
     DatabaseGUI d;
     OperationType type;
     Operations_Display a;
-    OperationsEnum op;
+
     public enterOperation(DatabaseGUI d){
         this.d = d;
         a = new Customer_Database_Controller();
@@ -30,11 +30,11 @@ public class enterOperation implements ActionListener
          for(OperationType o: d.opeartion_list){
              System.out.println("Input: "+o.getInput() + ". Operation: " +o.getOperation() +". Last?: "+ o.isThelast());
             }*/
-          d.opeartion_list = new LinkedList<OperationType>();
+          //d.opeartion_list = new LinkedList<OperationType>();
           //d.textArea.setText("");
           //System.out.println("---------------------------");
           
-          // set text area at bottom
+          
           d.table.setModel(setTable(a.getResult()));
       
           

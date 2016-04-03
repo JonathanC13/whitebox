@@ -16,6 +16,7 @@ public class DatabaseGUI {
     protected JTable table; 
     protected int operation = 1;
     protected int Table_names = 1;
+ 
     /**
      * Launch the application.
      */
@@ -38,6 +39,8 @@ public class DatabaseGUI {
     public DatabaseGUI() {
         initialize();
         opeartion_list = new LinkedList<OperationType>();
+       
+        
         //opeartion_list.add(new OperationType());
     }
 
@@ -47,9 +50,10 @@ public class DatabaseGUI {
     private void initialize() {
         Customer_Database_INFO database_info = new Customer_Database_INFO();
         frame = new JFrame();
-        frame.setBounds(100, 100, 780, 470);
+        //frame.setBounds(100, 100, 780, 470);
+        frame.setBounds(100, 100, 800, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         frame.setMinimumSize(new Dimension(780, 470));
+         frame.setMinimumSize(new Dimension(800, 500));
         JLabel lblInputAcceptsWild = new JLabel("Input accepts wild card, ex S% mean all entries that start with S");
         
         textField_1 = new JTextField();
@@ -60,11 +64,25 @@ public class DatabaseGUI {
         ActionListener c = new enterOperation(this);
         btnApplyFilters.addActionListener(c);
         
-        JButton btnCancel = new JButton("Cancel");
+        JButton btnCancel = new JButton("Cancal");
+
         btnCancel.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {       
+                
+                Operations_Display op = new Customer_Database_Controller();
+                op.close();
                 frame.dispose();
+               
+            }
+        });
+        JButton btnClearAll = new JButton("Clear All");
+        btnClearAll.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {       
+                opeartion_list = new LinkedList<OperationType>();
+                textArea.setText("");
+                
             }
         });
         JScrollPane scrollPane = new JScrollPane();
@@ -75,48 +93,51 @@ public class DatabaseGUI {
         textArea_1 = new JTextArea();
         textArea_1.setEditable(false);
         
-        scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+       scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
        GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-        groupLayout.setHorizontalGroup(
-            groupLayout.createParallelGroup(Alignment.TRAILING)
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addGap(160)
-                    .addComponent(lblInputAcceptsWild)
-                    .addContainerGap(234, Short.MAX_VALUE))
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(textArea_1, GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
-                    .addGap(19)
-                    .addComponent(btnApplyFilters, GroupLayout.PREFERRED_SIZE, 91, Short.MAX_VALUE)
-                    .addGap(18)
-                    .addComponent(btnCancel, GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addGap(52))
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addContainerGap())
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addContainerGap())
-        );
-        groupLayout.setVerticalGroup(
-            groupLayout.createParallelGroup(Alignment.LEADING)
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblInputAcceptsWild)
-                    .addPreferredGap(ComponentPlacement.RELATED)
-                    .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(ComponentPlacement.UNRELATED)
-                    .addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addPreferredGap(ComponentPlacement.RELATED)
-                    .addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-                        .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                            .addComponent(btnApplyFilters)
-                            .addComponent(btnCancel))
-                        .addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
-        );
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(160)
+							.addComponent(lblInputAcceptsWild))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnApplyFilters, GroupLayout.PREFERRED_SIZE, 91, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnClearAll, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnCancel, GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblInputAcceptsWild)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(btnCancel)
+							.addComponent(btnClearAll)
+							.addComponent(btnApplyFilters))
+						.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+
    
         table = new JTable();
        
@@ -143,7 +164,6 @@ public class DatabaseGUI {
                  Table_names = comboBox.getSelectedIndex()+1;
                  String[] s = database_info.getCol(Table_names);
                  DefaultComboBoxModel<String> data_mode = new DefaultComboBoxModel<String>(s);
-                 
                  comboBox_1.setModel(data_mode);
  
             }

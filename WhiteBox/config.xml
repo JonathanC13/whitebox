@@ -4,9 +4,11 @@
 
 	<!-- Can add many variables here so they don't have to be hardcoded, add more if we have the time -->
 
-	<!-- Path to folder to scan -->
-	<entry key="path"> </entry>
+	<!-- Path to CustomerFormsTemplate -->
+	<entry key="CustomerFormTemplate">C:\Users\Public\Templates\</entry>
 
+	<!-- Path to CustomerForms -->
+	<entry key="CustomerForms">C:\Users\Public\CustomerForms\</entry>
 	
 	<!-- Host URL for DB Connection (host address:port:database name), ex jdbc:oracle:thin:@img-tdc-q005593:1521:ITSMTDC5 -->
 	<!--<entry key="hostURL">jdbc:mysql://localhost:3306/whitebox_db?autoReconnect=true&useSSL=false;</entry>-->

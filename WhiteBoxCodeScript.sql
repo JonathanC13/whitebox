@@ -11,7 +11,7 @@ CREATE TABLE `customer_info` (
   `Email` varchar(128) DEFAULT NULL,
   `Phone` varchar(45) DEFAULT NULL,
   `Address` varchar(128) DEFAULT NULL,
-  `Delivery_Date` date NOT NULL,	
+  `Delivery_Date` varchar(45) DEFAULT NULL,	
   
   PRIMARY KEY (`Build_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -20,9 +20,9 @@ CREATE TABLE `customer_info` (
 
 CREATE TABLE `payment_info` (
 
-  `Build_ID` int(11) NOT NULL,
-  `Payment_method_use` varchar(45) NOT NULL,
-  `Total_value` int(11) NOT NULL,
+  `Build_ID` int(11) DEFAULT NULL,
+  `Payment_method_use` varchar(45) DEFAULT NULL,
+  `Total_value` int(11) DEFAULT NULL,
   `Delivery_confirmation_link` varchar(45) NOT NULL,
   
   KEY `FK_Payment_info_idx` (`Build_ID`),
@@ -35,20 +35,20 @@ CREATE TABLE `payment_info` (
 
 
 CREATE TABLE `product_info` (
-  `Build_ID` int(11) NOT NULL,
-  `Component_type` int(11) NOT NULL,
-  `Manufacturer` int(11) NOT NULL,
+  `Build_ID` int(11) DEFAULT NULL,
+  `Component_type` int(11) DEFAULT NULL,
+  `Manufacturer` int(11) DEFAULT NULL,
   `Product_description` varchar(45) NOT NULL,
-  `model_number` int(11)  NOT NULL,
-  `Serial_number` int(11)  NOT NULL,
+  `model_number` int(11)  DEFAULT NULL,
+  `Serial_number` int(11)  DEFAULT NULL,
   `Rebate_value` int(11) DEFAULT NULL,
-  `Price` int(11) NOT NULL,
+  `Price` int(11) DEFAULT NULL,
   `Warranty_period` int(11) DEFAULT NULL,
   `Warranty_expire` date DEFAULT NULL,
-  `Invoice_date` date NOT NULL,
-  `Invoice_number` int(11) NOT NULL,
-  `Sale_order_number` int(11) NOT NULL,
-  `Item_SKU` int(11) NOT NULL,
+  `Invoice_date` date DEFAULT NULL,
+  `Invoice_number` int(11) DEFAULT NULL,
+  `Sale_order_number` int(11) DEFAULT NULL,
+  `Item_SKU` int(11) DEFAULT NULL,
   
   KEY `FK_Product_info_idx` (`Build_ID`),
   CONSTRAINT `FK_Product_info` FOREIGN KEY (`Build_ID`) REFERENCES `customer_info` (`Build_ID`) 
@@ -60,13 +60,13 @@ CREATE TABLE `product_info` (
 
 
 CREATE TABLE `component_type_table` (
-  `Component_type` int(11) NOT NULL,
-  `Component_type_description` varchar(45) NOT NULL
+  `Component_type` int(11) DEFAULT NULL,
+  `Component_type_description` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `manufacturer_table` (
-  `Manufacturer` int(11) NOT NULL,
-  `Manufacturer_name` varchar(45) NOT NULL
+  `Manufacturer` int(11) DEFAULT NULL,
+  `Manufacturer_name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

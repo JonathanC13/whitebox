@@ -1,24 +1,23 @@
 use Whitebox_db;
 
-drop database whitebox_db;
+-- drop database whitebox_db;
 
-drop table whitebox_db.customer_info;
-drop table whitebox_db.payment_info;
-drop table whitebox_db.product_info;
+-- drop table whitebox_db.customer_info;
+-- drop table whitebox_db.payment_info;
+-- drop table whitebox_db.product_info;
 
-drop table whitebox_db.manufacturer_name;
-drop table whitebox_db.component_type_description;
+-- drop table whitebox_db.manufacturer_name;
+-- drop table whitebox_db.component_type_description;
 
-delete from  whitebox_db.product_info where build_id =2;
-
+-- delete from  whitebox_db.product_info where build_id =2;
 
 -- --------------------------------------------------------------
 -- Create test data
 -- --------------------------------------------------------------
-insert into whitebox_db.manufacturer_table values (1, 'Lenovo');
-insert into whitebox_db.manufacturer_table values (2, 'IBM');
-insert into whitebox_db.manufacturer_table values (3, 'LG');
-insert into whitebox_db.manufacturer_table values (4, 'ACER');
+insert into whitebox_db.manufacturer_table values (1, 'Intel');
+insert into whitebox_db.manufacturer_table values (2, 'ASUS');
+insert into whitebox_db.manufacturer_table values (3, 'Gigabyte');
+insert into whitebox_db.manufacturer_table values (4, 'EVGA');
 
 insert into whitebox_db.component_type_table values (1, 'Motherboard');
 insert into whitebox_db.component_type_table values (2, 'Disk');
@@ -31,7 +30,7 @@ insert into whitebox_db.customer_info values (
 insert into whitebox_db.customer_info values (
 	default, 'Smith 2', 'North.Pole@yahoo.com', '1-905-222-2222', '10 Charles Street, Ottawa, ON, H0H-0H0', '2016-03-23');
 insert into whitebox_db.customer_info values (
-	default, 'Smith 3', 'North.Pole@yahoo.com', '1-905-333-3333', '10 Charles Street, Ottawa, ON, H0H-0H0', '2016-03-23');
+	default, 'Smith 3', 'North.Pole@yahoo.com', '', '10 Charles Street, Ottawa, ON, H0H-0H0', '2016-03-23');
  
 insert into whitebox_db.payment_info values (1, 'Visa', 10000, 'www.abc.com/efg1.pdf');
 insert into whitebox_db.payment_info values (2, 'Visa', 20000, 'www.abc.com/efg2.pdf');
@@ -71,7 +70,6 @@ insert into whitebox_db.product_info values (
     '2016-05-01', 12345,	-- `Invoice_date`, `Invoice_number`
     2, 11111);	    
     
-
 -- ------------------------------------------------------------------
 -- Test script
 -- ------------------------------------------------------------------   
@@ -84,7 +82,6 @@ SELECT * FROM whitebox_db.customer_info WHERE Name LIKE 'Smi%1';	-- % is a wildc
 
 SELECT * FROM whitebox_db.payment_info;
 SELECT * FROM whitebox_db.product_info;
-
 
 
 -- Delete customer's build_id == 2. 
@@ -108,16 +105,17 @@ JOIN whitebox_db.payment_info AS PYINFO ON CINFO.Build_ID = PYINFO.Build_ID
 JOIN whitebox_db.product_info AS PRINFO ON CINFO.Build_ID = PRINFO.Build_ID
 JOIN whitebox_db.manufacturer_table AS MANNAME ON PRINFO.Manufacturer = MANNAME.Manufacturer
 JOIN whitebox_db.component_type_table AS COMP ON PRINFO.Component_type = COMP.Component_type
+WHERE CINFO.Build_ID LIKE '1'
 ORDER BY CINFO.Name;
 
 -- Returns all rows with the prescribed coulumns from all tables
-SELECT CINFO.Name, PYINFO.Payment_method_use, CINFO.Build_ID, MANNAME.Manufacturer_name, COMP.Component_type_description, PRINFO.Product_description 
+SELECT PYINFO.Payment_method_use, CINFO.Build_ID, MANNAME.Manufacturer_name, COMP.Component_type_description, PRINFO.Product_description 
 FROM whitebox_db.customer_info AS CINFO
 JOIN whitebox_db.payment_info AS PYINFO ON CINFO.Build_ID = PYINFO.Build_ID
 JOIN whitebox_db.product_info AS PRINFO ON CINFO.Build_ID = PRINFO.Build_ID
 JOIN whitebox_db.manufacturer_table AS MANNAME ON PRINFO.Manufacturer = MANNAME.Manufacturer
 JOIN whitebox_db.component_type_table AS COMP ON PRINFO.Component_type = COMP.Component_type
-ORDER BY CINFO.Name;
+ORDER BY CINFO.Build_ID;
 
 -- Returns all rows with the input 'Build_ID' from all tables
 SELECT CINFO.Name, PYINFO.Payment_method_use, CINFO.Build_ID, MANNAME.Manufacturer_name, COMP.Component_type_description, PRINFO.Product_description 
@@ -181,14 +179,11 @@ call create_customer_by_name_with_payment_info(
 );
 
 
-SELECT CINFO.Name, PINFO.Payment_method_use
+SELECT *
 from customer_info AS CINFO
 JOIN payment_info AS PINFO ON CINFO.Build_ID = PINFO.Build_ID
-WHERE PINFO.Payment_method_use = 'Visa';
+WHERE PINFO.Payment_method_use = 'Visa' and PINFO.Build_ID = '1' ;
 
-
-
-select * from product_info;
 
 SELECT * from customer_info AS CINFO
 JOIN payment_info AS PINFO ON CINFO.Build_ID = PINFO.Build_ID

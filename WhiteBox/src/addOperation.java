@@ -11,23 +11,35 @@ public class addOperation implements ActionListener
     //LinkedList<OperationType> list = new  LinkedList<OperationType>();
     DatabaseGUI d;
     OperationType type;
+    Customer_Database_INFO info;
     public addOperation(DatabaseGUI d){
         this.d = d;
-        
+        info = new Customer_Database_INFO();
     }
     
     public void actionPerformed(ActionEvent e){
-         type = new OperationType(d.textField_2.getText(),d.operation-1,d.Table_names-1);
-         String s = "";
-         if(!isExist(type))d.opeartion_list.add(type);
-         for(OperationType o: d.opeartion_list){
-             //s = s + "Input: "+o.getInput() + ". Operation: " +o.getOperation() +". Last?: "+ o.isThelast()+"\n";
-             if(o != d.opeartion_list.getFirst()){s = s +", ";}
-             s = s + "["+(o.getTable()+1) + ": " + (o.getOperation()+1) +": "+o.getInput()+"]";
-            }
-         System.out.println(s);
-         d.textArea.setText(s);
-         System.out.println("---------------------------");
+    
+    	 if(d.textField_2.getText().contains(";")){
+    		 
+    		 d.textArea_1.setText("Illegal character ';'");
+    		
+    	 } 
+    	 else {
+    		 
+    		type = new OperationType(d.textField_2.getText(),d.operation-1,d.Table_names-1);
+    		 
+		     String s = "";
+		     if(!isExist(type))d.opeartion_list.add(type);
+		     for(OperationType o: d.opeartion_list){
+		         //s = s + "Input: "+o.getInput() + ". Operation: " +o.getOperation() +". Last?: "+ o.isThelast()+"\n";
+		         if(o != d.opeartion_list.getFirst()){s = s +", ";}
+		         // + info.Column_names[info.getOffSet(o.getTable(),o.getOperation())] +
+		         s = s + "["+info.Table_names[o.getTable()] + "->"+ info.Column_names[info.getOffSet(o.getTable(),o.getOperation())] +"-> "+o.getInput()+"]";
+		        }
+		     System.out.println(s);
+		     d.textArea.setText(s);
+		     //System.out.println("---------------------------");
+    	 }
     }
     public boolean isExist(OperationType o){
         String s = o.getInput();

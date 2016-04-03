@@ -14,6 +14,7 @@ public class OperationType
     public OperationType(){
         this("",0,0);
     }
+    
     public OperationType(String input, int operation,int table){
         this(input,operation,table,false);
     }

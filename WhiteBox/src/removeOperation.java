@@ -23,9 +23,9 @@ public class removeOperation implements ActionListener
              if(o != d.opeartion_list.getFirst()){s = s +", ";}
              s = s + "["+o.getTable() + ": " + (o.getOperation()+1) +": "+o.getInput()+"]";
             }
-          System.out.println(s);  
+          //System.out.println(s);  
           d.textArea.setText(s);  
-          System.out.println("---------------------------");
+          //System.out.println("---------------------------");
     }
     public boolean remove (OperationType o){
         String s = o.getInput();

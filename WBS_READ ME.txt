@@ -1,0 +1,42 @@
+READ ME
+
+Programs required:
+	- MySQL (with the required versions of visual studio and python when installing)
+	- Eclipse or Bluej (to run java)
+
+Files included:
+	Java files:
+	- addOperation
+	- Customer_Database_Controller	; Perform operations directly to the customer database
+	- Customer_Database_INFO
+	- DatabaseGUI			; GUI for filter the customer database
+	- Databasetype
+	- enterOperation
+	- FileEditGUI			; GUI for insert to the customer database
+	- Operations_Display
+	- OperationType
+	- removeOperation
+
+	Referenced Libraries:
+	- mysql-connector-java-5.1.38-bin.jar
+	- commons-io-2.4.jar
+
+	xml files:
+	- config.xml			; contains directories for (source) InsertTemplate.xml (customer form template) and destination directory to copy to.
+					; Also contains username and password you have set for the customer database, make sure your mySQL account has correct privilages.
+	- InsertTemplate.xml		; Template form for customer information meant to be uploaded to insert to the customer database.
+
+	mySQL files:
+	- WhiteBoxCodeScript.sql
+	- WhiteBoxTestScript.sql
+
+Program set up:
+	- After downloading the code, you can import the Existing Proejct into the Workspace.
+	- Make sure you have "mysql-connector-java-5.1.38-bin.jar" and "commons-io-2.4.jar" as Referenced Libraries.
+	- This project has two seperate GUIs that are not connected, they both have their own main method. Right click the one of the GUI java files in eclipse or bluej and run.
+		- Inserting to the database doesn't work properly so running "FileEditGUI.java" is not much use.
+		- "DatabaseGUI.java" is the GUI for filtering the customer database. The operations work properly.
+	- In mySQL, you'll need to create and populate the database, so execute the file "WhiteBoxCodeScript.sql" in mySQL to create the database and tables. To populate the tables, execute "WhiteBoxTestScript.sql."
+	- May need to set up mySQL accounts and give privilages to the database and then change the account settings in the "config.xml"	
+
+	
