@@ -70,6 +70,14 @@ insert into whitebox_db.product_info values (
     '2016-05-01', 12345,	-- `Invoice_date`, `Invoice_number`
     2, 11111);	    
     
+insert into whitebox_db.product_info values (
+	3, 2, 	-- `Build_ID`, `Component_type`
+    2, 'Harddisk',	-- `Manufacturer`, `Product_description`
+    3, 12345,	-- `model_number`, `Serial_number`
+    0, 100,		-- `Rebate_value`, `Price`
+    2, '2016-05-01',		-- `Warranty_period`, `Warranty_expire`
+    '2016-05-01', 12345,	-- `Invoice_date`, `Invoice_number`
+    2, 11111);	    
 -- ------------------------------------------------------------------
 -- Test script
 -- ------------------------------------------------------------------   
