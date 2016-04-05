@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- Note: limited usefulness. i.e. One build will have multiple products and tables that are referenced by it, this file only adds one. -->
+
+	<!-- Columns of the Database -->
+	<!-- Input your desired fields inbetween the ><. Ex, <entry key="Name">Jon</entry> -->
+
+	<!-- customer_info -->
+	<!-- <entry key="Build_ID.1"></entry>  This is set to auto increment in the database -->
+	
+		<entry key="Name">Bob</entry>
+		
+		<entry key="Email">Bob@bob.com</entry>
+		
+		<entry key="Phone">613-555-5555</entry>
+		
+		<entry key="Address">10 Street Street</entry>
+		
+		<entry key="Delivery_Date">2016-05-01</entry>
+	
+	<!-- payment_info -->
+		<entry key="Payment_method_use">Mastercard</entry>
+		
+		<entry key="Total_value">2000</entry>
+		
+		<entry key="Delivery_confirmation_link">C:/efg1.pdf</entry>
+	
+	<!-- product_info -->
+		<!-- Integer: need to look at database. Ex, 1 = Motherboard, 2 = Disk, etc. Right now 1 to 5-->
+		<entry key="Component_type">1</entry>
+		
+		<!-- Integer: need to look at database. Ex, 1 = Intel, 2 = ASUS, etc. Right now 1 to 4-->
+		<entry key="Manufacturer">2</entry>
+		
+		<entry key="Product_description">ASUS motherboard</entry>
+		
+		<entry key="model_number">52</entry>
+		
+		<entry key="Serial_number">11000</entry>
+		
+		<entry key="Rebate_value">100</entry>
+		
+		<entry key="Price">350</entry>
+		
+		<entry key="Warranty_period">2</entry>
+		
+		<entry key="Warranty_expire">2018-05-01</entry>
+		
+		<entry key="Invoice_date">2016-05-01</entry>
+		
+		<entry key="Invoice_number">3</entry>
+		
+		<entry key="Sale_order_number">44</entry>
+		
+		<entry key="Item_SKU">4477</entry>
+	
+</properties>

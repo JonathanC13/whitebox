@@ -1,5 +1,13 @@
 READ ME
 
+Introduction:
+	DatabasGUI is the GUI meant for filtering and viewing the information currently stored in the customer database. The user is able to choose their desired filter from the drop boxes and may input any specifications in the input box. We havn't masked the names of the database tables and columns that are displayed to the user, which pose a security risk. Once a the user has chosen what they want to view they must click add, then if they want more they may choose different specifications and click add again. The added filters are shown to allow the user, if the user wishes to delete an entry they must input the same specifications and click delete. Once the user wants to apply the filters then they must click apply, if the combination of filters are valid a table will be displayed. User may add more to the current filters or click clear all.
+
+FileEditGUI is the GUI meant for adding customer information to the customer database, this is incomplete.
+	How it should work:
+		The user inputs the filename of the filled template, which is located at the directroy specified in the "config.xml" file, into the field and clicks enter. The information is extracted and insert SQL queries are constructed and executed. Also the filled template is copied to another directory which is alost specified in the config.xml file. Ideally it should display to the user the information in the same format as the it would if it was in the customer database, then the user has the option to commit it. But we have not been able to do this. We have been stalled at the stage to basically build and execute mulitple "insert into" queries to actually add to the database in the program.
+
+
 Programs required:
 	- MySQL (with the required versions of visual studio and python when installing)
 	- Eclipse or Bluej (to run java)

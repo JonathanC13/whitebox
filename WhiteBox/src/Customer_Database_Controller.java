@@ -63,10 +63,11 @@ public class Customer_Database_Controller implements Operations_Display {
         //this.Op = Op;
         //TableSave = new LinkedList<String> ();
     }
-       
+    
+    // Connect to the customer database stored with mySQL
     public void CustomerDB_Connect() throws FileNotFoundException{
         
-        // XML file
+        // XML file, config.xml
         Properties props = new Properties();
         FileInputStream fis = new FileInputStream("./config.xml"); // ./config.xml
         try {
@@ -83,10 +84,11 @@ public class Customer_Database_Controller implements Operations_Display {
         //String host = props.getProperty("hostURL");
         //String host2 = host + ";";
         
+        // retrieve information set in the config.xml file
         String userName = props.getProperty("Username");
         String password = props.getProperty("Password");
         
-        //hard coded for now
+        //hard coded for now since it isnt working when retrieved from the xml file.
         String host = "jdbc:mysql://localhost:3306/whitebox_db?autoReconnect=true&useSSL=false";
         /*
         try {
@@ -100,6 +102,7 @@ public class Customer_Database_Controller implements Operations_Display {
         }
         */
         
+        //Attempt connection
         try {
             connect = DriverManager.getConnection(host, userName, password);
             System.out.println("Database connected!");
@@ -110,9 +113,10 @@ public class Customer_Database_Controller implements Operations_Display {
         
     }
 
-    
+    // GUI selects which operation after each corresponding button press to set up SQL query string.
     public void SelectOperation(int Operation){
         
+    	// Connect to database initially, connection is set to auto connect because of this "autoReconnect=true" in the hostURL
         if(FirstOp){
             
             try {
@@ -125,7 +129,7 @@ public class Customer_Database_Controller implements Operations_Display {
             FirstOp = false;
         }
         
-        // empty string
+        // empty the string
         stringy.setLength(0);
         
         // if 1, upload file
@@ -145,10 +149,11 @@ public class Customer_Database_Controller implements Operations_Display {
                 stringy.append("SELECT ");
                 break;
             */
-           
+        // upload selection, no initial append  
         if (Operation == 1){
           // for upload
         }
+        // filter selection, starts with SELECT
         else if (Operation == 2){
           // for filter
             stringy.append("SELECT ");
@@ -209,6 +214,9 @@ public class Customer_Database_Controller implements Operations_Display {
         }
         
         int build_num = BuildInsertSQL(props);
+        
+        // Copy populated template to another location with specified filename. Not working at the moment.
+        /* 
         String sBuild = Integer.toString(build_num);
         
         CopyDes = CopyDes + sBuild;
@@ -221,6 +229,7 @@ public class Customer_Database_Controller implements Operations_Display {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
         
         String message = "File extracted, commited to customer database, and filled template can be found at "  + CopyDes;
         
@@ -410,11 +419,13 @@ public class Customer_Database_Controller implements Operations_Display {
         return resultSet;
     }
     
-    // Execute SQL
+    // Execute SQL and set the resultSet so GUI can get and display.
     protected void ExecuteOperation(StringBuilder stringy2, int Operate){
         Acknowledgement = "SQL executed, Table returned.";
         String SQLJob = stringy2.toString();
         System.out.println("SQLJob = "+SQLJob);
+        
+        // for filter SELECT SQL query
         if(Operate == 2){
 	        try{
 	        
@@ -438,6 +449,7 @@ public class Customer_Database_Controller implements Operations_Display {
 	        	// now closed with a button press elsewhere.
 	        }
         } 
+        // different way to execute for INSERT Query
         else if (Operate == 1){
         	
         	try{
@@ -446,6 +458,7 @@ public class Customer_Database_Controller implements Operations_Display {
 	            statement = connect.createStatement();
 	            statement.executeUpdate(SQLJob);
 	            
+	            // maybe need to auto commit after each "insert into" to be able to "insert into" other tables that have references. Then the commit button becomes redundant and doesn't give the user the ability to choose to commit, but could just provide a roll back button.
 	            //connect.commit();
 	            
 	        } catch (Exception e) {
@@ -468,9 +481,13 @@ public class Customer_Database_Controller implements Operations_Display {
     
 
     
-    // Build SQL to insert. easy way first.
+    // Build SQL to insert. easy way first. 
+    // Only first "insert into" works, the ones that follow contain a bug that relates to the query that is attempted to be executed on the customer database.
+    // error; readDataBase Exception. Cannot add or update a child row: a foreign key constraint fails
     public int BuildInsertSQL(Properties proper){
         count = 0;
+        
+        // determine next build_ID since the database auto increments, this is the reason why the build_ID field in the customer_info table is set to default. Then the information in the other tables that relate to the same build_ID must explicitly set it in the "insert into"
     	try{
             
             statement = connect.createStatement();
@@ -549,9 +566,13 @@ public class Customer_Database_Controller implements Operations_Display {
     	
     	ExecuteOperation(stringy, 1);
     	stringy.setLength(0);
+    	
+    	viewCommit();
+    	
     	return count;
     }
     
+    // for commit button
     public void commitTO(){
     	try{
     		connect.commit();
@@ -564,6 +585,8 @@ public class Customer_Database_Controller implements Operations_Display {
     	viewCommit();
     	
     }
+    
+    // after all "insert into" return the row that was just added.
     private void viewCommit(){
 	    try{
 	        
@@ -583,7 +606,7 @@ public class Customer_Database_Controller implements Operations_Display {
 	    	// now closed with a button press elsewhere.
 	    }
     }
-    // needs to be called when GUI is closed
+    // needs to be called when GUI is closed. Linked to cancel button
     public void close() {
         try {
             if (resultSet != null) {

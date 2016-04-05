@@ -5,7 +5,7 @@
 	<!-- Can add many variables here so they don't have to be hardcoded, add more if we have the time -->
 
 	<!-- Path to CustomerFormsTemplate -->
-	<entry key="CustomerFormTemplate">C:\Users\Public\Templates\</entry>
+	<entry key="CustomerFormTemplate">C:\Users\jonny\workspace\WhiteBox\</entry>
 
 	<!-- Path to CustomerForms -->
 	<entry key="CustomerForms">C:\Users\Public\CustomerForms\</entry>

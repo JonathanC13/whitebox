@@ -87,7 +87,7 @@ public class FileEditGUI {
                 //op.SelectOperation(1);
                 //textArea.setText(op.UploadFileDirectory(textField.getText()));
                 // do commit
-                op.commitTO();
+                //op.commitTO();
                 table.setModel(setTable(op.getResult()));
             }
             public DefaultTableModel setTable(ResultSet rs){
@@ -110,7 +110,7 @@ public class FileEditGUI {
                 return data_mode;
             }
         });
-        JLabel lblMessageThisVersion = new JLabel("Message: This version has auto commit enabled or the database no rollback available  ");
+        JLabel lblMessageThisVersion = new JLabel("Message: Provide filename that is in the specified directory choosen in the 'config.xml' file. Program commits insert automatically then displays the updated row from the database, rollback button available(not implemented yet).");
       GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

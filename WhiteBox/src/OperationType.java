@@ -45,7 +45,9 @@ public class OperationType
     public void setThelast(boolean b){
         thelast = b;
     }
+    /*
     public void setTable(){
         this.table = table;
     }
+    */
 }
