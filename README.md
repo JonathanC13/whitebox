@@ -10,21 +10,21 @@ The final report can be seen in the pdf file named "Phase4_Reportv1.0"
 - Followed waterfall sequential software design process to design a system from collecting the requirements from the client to implementation. <br/>
     
     -> The steps completed were: <br/>
-      1. Requirement definition: It included collecting the requirements from the client and then categorizing them into functional and non-functional requirements <br/>
-      2. Specification: Used Scenario cases to outline user's actions and how the system should react to understand the flow of each feature <br/>
-      3. Design: Created use case diagrams, use cases, class diagrams, sequence diagrams, a statechart diagram, a control class diagram, a subsystem decomposition diagram, and finally a system design diagram. <br/>
-      4. Implementation: Implemented one sub system to demonstrate a feature. <br/>
+          1. Requirement definition: It included collecting the requirements from the client and then categorizing them into functional and non-functional requirements <br/>
+          2. Specification: Used Scenario cases to outline user's actions and how the system should react to understand the flow of each feature <br/>
+          3. Design: Created use case diagrams, use cases, class diagrams, sequence diagrams, a statechart diagram, a control class diagram, a subsystem decomposition diagram, and finally a system design diagram. <br/>
+          4. Implementation: Implemented one sub system to demonstrate a feature. <br/>
 
     -> The remaining steps that were not done, due to only implementing one sub system, were: <br/>
-      5. Integration with the client <br/>
-      6. Maintenance, since the system wasn't complete <br/>
+          5. Integration with the client <br/>
+          6. Maintenance, since the system wasn't complete <br/>
     
-- Designed and implemented one sub system defined in our project design process to be able to demonstrate to the customer. We chose to implement the sub system that interfaced with a SQL database to filter entries and display them to the user in a GUI.
+- Designed and implemented one sub system defined in our project design process to be able to demonstrate to the customer. We chose to implement the sub system that interfaced with a SQL database to filter entries and display them to the user in a GUI. <br/>
   
-  -> The following components were used:
-    Front end GUI: Java
-    Back end SQL querying: Java
-    Database: SQL server
+  -> The following components were used: <br/>
+        Front end GUI: Java <br/>
+        Back end SQL querying: Java <br/>
+        Database: SQL server <br/>
     
 ## Notes
 06/30/19: Looking back at this project, it was clear we were unexperienced in design and we used familiar tools instead of using tools that would have made the solution better, maybe it was due to time constraints and learning another tool wasn't appealing at the time. For example, instead of using Java for the front end and back end we could have used a web based solution (HTML, CSS, JS) for the front end and Node JS for the back end. The SQL server would still work as the database.
