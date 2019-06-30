@@ -28,12 +28,12 @@ The final report can be seen in the pdf file named "Phase4_Reportv1.0"
     
 ## End remark 
 
-Looking back at this project, it was clear we were unexperienced in design and we used familiar tools instead of using tools that would have made the solution better, maybe it was due to time constraints and learning another tool wasn't appealing at the time. For example, instead of using Java for the front end and back end we could have used a web based solution (HTML, CSS, JS) for the front end and Node JS for the back end. The SQL server would still work as the database. <br/>
+Looking back at this project, it was clear we were unexperienced in design and we used familiar tools instead of using tools that would have made the solution better, maybe it was due to time constraints and learning another tool wasn't appealing at the time. For example, instead of using Java for the front end and back end we could have used a web based solution (HTML, CSS, JS) for the front end and Node JS for the back end. The SQL server would still work as the database. <br/> <br/>
 All in all, I'm happy with what we accomplished in this course and I'm thankful to my teammates.
 
-Calvin Neethling
-Hooseon Yim
-Yan Liao
+Calvin Neethling <br/>
+Hooseon Yim <br/>
+Yan Liao <br/>
 
 Sincerely,
-    Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;Jonathan
