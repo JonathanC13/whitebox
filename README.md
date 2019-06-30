@@ -37,3 +37,6 @@ The final report can be seen in the pdf file named "Phase4_Reportv1.0"
     Calvin Neethling
     Hooseon Yim
     Yan Liao
+    
+    Sincerly,
+        Jonathan
