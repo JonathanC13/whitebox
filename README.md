@@ -1,4 +1,4 @@
-#White Box systems mini project					     January 2016 – April 2016
+**White Box systems mini project					     January 2016 – April 2016**
 Sysc3020 mini design project. Created simple customer database and GUI to store/retrieve customer information.
 
 The final report can be seen in the pdf file named "Phase4_Reportv1.0"
@@ -18,6 +18,6 @@ https://github.com/JonathanC13/whitebox
     #Front end GUI: Java
     #Back end SQL querying: Java
     #Database: SQL server
-
-##**Note**##
+    
+**Note**
 06/30/19: Looking back at this project, it was clear we were unexperienced in design and we used familiar tools instead of using tools that would have made the solution better, maybe it was due to time constraints and learning another tool wasn't appealing at the time. For example, instead of using Java for the front end and back end we could have used a web based solution (HTML, CSS, JS) for the front end and Node JS for the back end. The SQL server would still work as the database.
