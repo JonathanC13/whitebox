@@ -35,5 +35,5 @@ Calvin Neethling <br/>
 Hooseon Yim <br/>
 Yan Liao <br/>
 
-Sincerely,
+Sincerely, <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;Jonathan
