@@ -32,7 +32,7 @@ The final report can be seen in the pdf file named "Phase4_Reportv1.0"
     
 ## End remark 
    
-    All in all, I'm happy with what we accomplished in this course and thankful to my teammates.
+    All in all, I'm happy with what we accomplished in this course and I'm thankful to my teammates.
     
     Calvin Neethling
     Hooseon Yim
